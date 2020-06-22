@@ -34,6 +34,7 @@
 
              await setPokeType(pokemon, i);
 
+             await setFlavourText(pokemon, i);
          } catch {
              console.log("Error Can't Set Pokemon")
          }
@@ -41,7 +42,6 @@
      }
  }
  async function setPokeSprite(pokemon, i) {
-     console.log(pokemon);
      var img = document.querySelectorAll(".pokemon img");
      if (getRandomInt(6) == 4) { //set shiny as a 1 out of 6 chance
          img[i].src = pokemon.sprites.front_shiny;
@@ -50,14 +50,27 @@
      }
  }
 
- //set colur by type
- async function setPokeType(pokemon, i) { //fix
-     var type = document.querySelectorAll(".pokemon #type");
+ //todo: set colur by type
+ async function setPokeType(pokemon, i) {
+     var type1 = document.querySelectorAll(".pokemon #type1");
+     var type2 = document.querySelectorAll(".pokemon #type2");
 
-     for (var j = 0; j > pokemon.types.length; j++) {
-         console.log(pokemon.types[j].type.name);
-         type.innerHTML = pokemon.types[j].type.name; //not right fill a string then pass or do something else to allow for colour coding
-     }
+     type1[i].innerHTML = pokemon.types[0].type.name;
+     type2[i].innerHTML = pokemon.types[1].type.name;
+
+ }
+ //todo: randomaize english flavour texts?
+ async function setFlavourText(pokemon, i) {
+     var flavour = document.querySelectorAll(".pokemon #flavourtext");
+     P.getPokemonSpeciesByName(pokemon.name)
+         .then(function(response) {
+             for (var j = 0; j <= response.flavor_text_entries.length; j++) {
+                 if (response.flavor_text_entries[j].language = "en") {
+                     flavour[i].innerHTML = response.flavor_text_entries[j].flavor_text;
+
+                 }
+             }
+         });
 
  }
  /* use to get info like flavour text
