@@ -34,7 +34,7 @@
 
              await setPokeType(pokemon, i);
 
-             await setFlavourText(pokemon, i);
+             // await setFlavourText(pokemon, i);
          } catch {
              console.log("Error Can't Set Pokemon")
          }
@@ -59,26 +59,41 @@
      type2[i].innerHTML = pokemon.types[1].type.name;
 
  }
- //todo: randomaize english flavour texts?
+
  async function setFlavourText(pokemon, i) {
      var flavour = document.querySelectorAll(".pokemon #flavourtext");
      P.getPokemonSpeciesByName(pokemon.name)
          .then(function(response) {
-             for (var j = 0; j <= response.flavor_text_entries.length; j++) {
-                 if (response.flavor_text_entries[j].language = "en") {
-                     flavour[i].innerHTML = response.flavor_text_entries[j].flavor_text;
 
+             var englishtext = [];
+             for (var j = 0; j < response.flavor_text_entries.length; j++) {
+                 if (response.flavor_text_entries[j].language.name == "en") {
+                     englishtext.push(response.flavor_text_entries[j]);
                  }
              }
-         });
+             for (var x = 0; x < englishtext.length - 1; x++) {
+                 console.log("this is a test: " + englishtext[x].flavor_text);
+             }
+             /* var randNum = getRandomInt(response.flavor_text_entries.length);
+             var randText = response.flavor_text_entries[randNum];
 
+             var textset = false;
+             while (textset == false) { // grab a random flavor text if thats not in english loop back and try again until we find one
+                 if (randText.language.name == "en") {
+                     flavour[i].innerHTML = randText.flavor_text;
+                     textset = true;
+                     console.log(randText.flavor_text);
+                 } else {
+                     randNum = getRandomInt(response.flavor_text_entries.length);
+                     randText = response.flavor_text_entries[randNum];
+                     console.log("Second Attempt: " + randText.flavor_text);
+                 }
+             }
+
+*/
+         });
  }
- /* use to get info like flavour text
-   P.getPokemonSpeciesByName("wormadam")
-     .then(function(response) {
-       console.log(response);
-     });
- */
+
  async function setPokemon(pokeNum) {
      var pokemon;
      try {
