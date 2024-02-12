@@ -34,7 +34,7 @@
 
              await setPokeType(pokemon, i);
 
-             // await setFlavourText(pokemon, i);
+             await setFlavourText(pokemon, i);
          } catch {
              console.log("Error Can't Set Pokemon")
          }
@@ -60,6 +60,8 @@
 
  }
 
+
+
  async function setFlavourText(pokemon, i) {
      var flavour = document.querySelectorAll(".pokemon #flavourtext");
      P.getPokemonSpeciesByName(pokemon.name)
@@ -74,8 +76,10 @@
              for (var x = 0; x < englishtext.length - 1; x++) {
                  console.log("this is a test: " + englishtext[x].flavor_text);
              }
-             /* var randNum = getRandomInt(response.flavor_text_entries.length);
+             var randNum = getRandomInt(response.flavor_text_entries.length);
              var randText = response.flavor_text_entries[randNum];
+
+             console.log("here's unedited" + response.flavor_text);
 
              var textset = false;
              while (textset == false) { // grab a random flavor text if thats not in english loop back and try again until we find one
@@ -90,7 +94,7 @@
                  }
              }
 
-*/
+
          });
  }
 
