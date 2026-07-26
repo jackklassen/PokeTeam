@@ -2,37 +2,138 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.div-team{
+  width: 50px;
+  max-width: 100%;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+}
+
+.App-body {
+
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.controls{
+  position: absolute; /* Pulls element out of layout flow */
+  top: 0;
+  left: 0;
+  z-index: 10
+}
+
+
+/*   Types  */
+.normal,
+.fire,
+.water,
+.electric,
+.grass,
+.ice,
+.fighting,
+.poison,
+.ground,
+.flying,
+.psychic,
+.bug,
+.rock,
+.ghost,
+.dragon,
+.dark,
+.steel,
+.fairy{
+  display:inline-block;
+  vertical-align: center;
+  border-radius: 8px;
   color: white;
+  margin: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+.normal{
+  background-color: gray;
+}
+.fire{
+  background-color: red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.water{
+  background-color: royalblue;
 }
+.electric{
+  background-color: yellow;
+}
+.grass{
+  background-color: green;
+}
+.ice{
+  background-color: lightblue;
+}
+.fighting{
+  background-color: brown;
+}
+.poison{
+  background-color: purple;
+}
+.ground{
+  background-color: sandybrown;
+}
+.flying{
+  background-color: skyblue;
+}
+.psychic{
+  background-color: gray;
+}
+.bug{
+  background-color: deeppink;
+}
+.rock{
+  background-color: saddlebrown;
+}
+.ghost{
+  background-color: blueviolet;
+}
+.dragon{
+  background-color: darkslateblue;
+}
+.dark{
+  background-color: rgb(0 0 0 / 0.64);
+}
+.steel{
+  background-color: seagreen;
+}
+.fairy{
+  background-color: hotpink;
+}
+
+/*  / Types  */
+
+.grid-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+}
+
+
+.grid-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.grid-item img{
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+
