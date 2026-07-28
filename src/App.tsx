@@ -13,24 +13,27 @@ interface PokemonProp{
 function RandomTeam(){
     try{
         let team:string[] = []
-       // const response = await fetch('https://pokeapi.co/api/v2/pokemon-species/?limit=0');
-       // const data = await response.json();
+        //const response = fetch('https://pokeapi.co/api/v2/pokemon-species/?limit=0')
+
+       // const data = await response.json()
+        //const max : number = data.count;
+        const max : number = 1025;
+        console.log(max);
 
         for(let i:number = 0; i < 6; i++) {
-            team.push((Math.floor(Math.random() * (1025 - 1 + 1)) + 1).toString());
+            team.push((Math.floor(Math.random() * (max - 1 + 1)) + 1).toString());
         }
 
         return team;
     }
     catch(err){
         console.error("failed to build team" + err);
+        return [];
     }
 }
 
 
 
-//Rewrite to remove data preperation just return a JSON
-//split it into the thing that grabs the data and the thing that cleans it (and that way cleaning can inclide the defaults)
 async function getPokemon(name: string){
     try{
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
@@ -38,7 +41,7 @@ async function getPokemon(name: string){
     const data : any = await response.json();
 
     if (data == null){
-        console.error('Could not find any pokemon');
+        console.error('Could not find any Pokémon');
         return null;
     }
 
@@ -60,7 +63,7 @@ async function getPokemon(name: string){
 
 export function PokeImg({img}: {img: string}) {
     return (
-            <img src = {img}>
+            <img src = {img} alt = "Pokemon Should Be here">
             </img>
     );
 }
@@ -80,7 +83,7 @@ function IsMultipleTypes(types: string[]){
 }
 
 //Pokemon can only have a max of two types so do ternry op to determine dispaly of types[0] or types[0] and types[1]
-//also add css to colour types approriatlly
+//also add CSS to colour types approriatlly
 export function PokeTypes({types}: {types : string[]}){
     return (
 
@@ -93,9 +96,6 @@ export function PokeTypes({types}: {types : string[]}){
     );
 }
 
-//at top I can grab data from API (call 6 random pokemon (with more specificity later) and modify a list,
-//then put that into app to generate the 6 pokemon visable to user (global list that gets read as data to build pokemon)
-//the thing to pass as prop is the pokemon data type which goes into pokemon and then passes only what is needed down to name img, number and type.
 export function Pokemon({img, name, number, types}: PokemonProp){
     return (
             <header className="App-body">
@@ -119,10 +119,7 @@ function App() {
     useEffect(() => {
         const fillPokemonList = async () => {
             try {
-
-
                 let names:any = RandomTeam();
-
                 const fetchedPokemon = await Promise.all(
                     names.map((name: string) => getPokemon(name))
                 );
@@ -130,7 +127,7 @@ function App() {
                 // @ts-ignore
                 setPokemonList(fetchedPokemon);
             } catch (error) {
-                console.error("Failed to fetch pokemon:", error);
+                console.error("Failed to fetch Pokémon:", error);
             }
         };
 
@@ -158,5 +155,6 @@ function App() {
       </div>
   );
 }
+
 
 export default App;
