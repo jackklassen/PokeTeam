@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 
@@ -111,12 +111,13 @@ export function Pokemon({img, name, number, types}: PokemonProp){
 
 
 
+
 function App() {
 
 
     const [pokemonList, setPokemonList] = useState<PokemonProp[]>([]);
 
-    useEffect(() => {
+
         const fillPokemonList = async () => {
             try {
                 let names:any = RandomTeam();
@@ -131,13 +132,11 @@ function App() {
             }
         };
 
-        fillPokemonList();
-    }, []);
-
   return (
       <div className="App">
           <div className="App-header">
-              <h1>refresh for a new team</h1>
+              <h1>PokéTeam</h1>
+              <button onClick={() => fillPokemonList()}>Click to reset team</button>
           </div>
         <div className="App-body">
             <div className="grid-container">
@@ -152,6 +151,7 @@ function App() {
                 ))}
             </div>
         </div>
+          <a href = "https://jackklassen.github.io/PersonalWebsite/"> by Jack Klassen</a>
       </div>
   );
 }
