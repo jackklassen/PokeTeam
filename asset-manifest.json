@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jackklassen/PokeTeam/static/css/main.580346db.css",
+    "main.js": "/jackklassen/PokeTeam/static/js/main.48588739.js",
+    "static/js/453.034e033d.chunk.js": "/jackklassen/PokeTeam/static/js/453.034e033d.chunk.js",
+    "index.html": "/jackklassen/PokeTeam/index.html",
+    "main.580346db.css.map": "/jackklassen/PokeTeam/static/css/main.580346db.css.map",
+    "main.48588739.js.map": "/jackklassen/PokeTeam/static/js/main.48588739.js.map",
+    "453.034e033d.chunk.js.map": "/jackklassen/PokeTeam/static/js/453.034e033d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.580346db.css",
+    "static/js/main.48588739.js"
+  ]
+}
