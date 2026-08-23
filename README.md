@@ -1,5 +1,6 @@
-# React Project to display a random Team of Pokemon
+# PokeTeam
 
-Primarilly a way to practice both React and interfacing with a RESTful API
+## About
+Primarily a way to practice both React and interfacing with a RESTful API
+Fully replaces a previous project that did the same thing without React and used a third-party wrapper to manage the API call.
 
-fully replaces a previous project that did the same thing without react and used a third-party wrapper to manage the API call.
