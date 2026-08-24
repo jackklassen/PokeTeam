@@ -1,3 +1,4 @@
+[![React](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)](https://react.dev) ![GitHub License](https://img.shields.io/github/license/jackklassen/PokeTeam)
 # PokeTeam
 
 ## About
